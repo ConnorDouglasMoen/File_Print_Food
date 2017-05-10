@@ -27,7 +27,7 @@ read_serial = ser.readline() #reads line from arduino
 # "GTYP":"Stream" - This message type is a stream message.
 # "SWPH 1":6.9 - The 1st Sensor of Water PH is reporting a value of 6.9
 # "SWTM 1":25.4 - The 1st Sensor of Water Temperature is reporting a value of 25.4 degrees C
-
+# etc, etc, etc.
 
 # How to determine beginning/end
 #   - The curly brackets encompass the entirety of the pertinent message --> Begin analyzing message at first curly bracket,
