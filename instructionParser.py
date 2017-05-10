@@ -43,3 +43,10 @@ read_serial = ser.readline() #reads line from arduino
 # Comparing Sensor data to bounds
 #   - Look up the current state of each sensor (by hashing the tag and finding its value), then simply compare this to the bounds
 #   - If greater, tell actuator to turn off, if less tell actuator to turn on (or visa versa, if appropriate).
+
+# Edge Cases
+#   - This algorithm will be fairly simple, apart from the beginning and end snipets.
+#   - These snipets disobey the overall trend because A) Both don't correspond to sensors/actuators and B) The very first snipet doesn't
+#     have a numerical value after the colon, but another string.
+#   - As of now, it appears that we do not need to interpret these messages within our parse function, but we do need to identify how to
+#     make them not break our code. Any ideas?
