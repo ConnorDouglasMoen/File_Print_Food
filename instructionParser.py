@@ -15,12 +15,12 @@ if read_serial[2:17] == "GTYP\":\"Stream\"" :
 	if(firstCheck == true):
 		for ii in (16:length(read_serial)):
 			if read_serial[ii] == "\"":
-				odd++
+				odd += 1
 				if odd%2 != 0 :
 					char = read_serial[ii+counter]
 					while char != "\"":
 						tempCode = tempCode + char
-						counter++
+						counter += 1
 						char = read_serial[ii+counter]
 					counter = 1
 					code = tempCode
@@ -29,7 +29,7 @@ if read_serial[2:17] == "GTYP\":\"Stream\"" :
 					char = read_serial[ii+counter]
 					while char != ",":
 						tempValue = tempValue + char
-						counter++
+						counter += 1
 						char = read_serial[ii+counter]
 					value = tempValue
 					tempValue = ""
