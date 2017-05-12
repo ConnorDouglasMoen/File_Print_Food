@@ -1,16 +1,46 @@
 import serial
 
 ser = serial.Serial('/dev/ttyACM0', 9600) #opens serial communications
-
+firstCheck = true
+code = ""
+char = ""
+value = ""	
+odd  = 0
+counter = 1
 # Step 1: read line of instructions
 read_serial = ser.readline() #reads line from arduino
+instructionDict = {}
 # Step 2: Check which sensor the instruction is coming from
-
+if read_serial[2:17] == "GTYP\":\"Stream\"" :
+	if(firstCheck == true):
+		for ii in (16:length(read_serial)):
+			if read_serial[ii] == "\"":
+				odd++
+				if odd%2 != 0 :
+					char = read_serial[ii+counter]
+					while char != "\"":
+						tempCode = tempCode + char
+						counter++
+						char = read_serial[ii+counter]
+					counter = 1
+					code = tempCode
+					tempCode = ""
+				else :
+					char = read_serial[ii+counter]
+					while char != ",":
+						tempValue = tempValue + char
+						counter++
+						char = read_serial[ii+counter]
+					value = tempValue
+					tempValue = ""
+					counter = 1
 # Step 3: Store value that came with said instruction code
-
+		instructionDict[code] = float(value)
 # Step 4: Use the value to determine what to do with the actuator
-
+		
 # Step 5: Send Actuator code back through arduino
+
+
 
 
 
