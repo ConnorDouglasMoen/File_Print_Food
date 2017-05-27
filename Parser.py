@@ -26,6 +26,7 @@ sensor_actuatorDict = {}
 def readTextFile(fileName) :
     file = open(fileName)
     for sensor in file :
+        sensor = sensor.strip()
         values = sensor.split(",")
         minDict[values[0]] = float(values[1])
         maxDict[values[0]] = float(values[2])
