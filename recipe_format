@@ -1,0 +1,9 @@
+File type : .txt
+Sensor tag, Minimum value, Maximum value, Corresponding actuator
+No spaces between the commas
+Only put quotes around the sensor and actuator tags
+The sensors can be in whatever order
+Only have the list in the text file
+
+example:
+"SWPH 1",5,10,"AAHE 1"
